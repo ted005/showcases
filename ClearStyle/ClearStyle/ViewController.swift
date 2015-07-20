@@ -62,6 +62,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.textLabel?.text = todoItmes[indexPath.row].text
         return cell
     }
+    
+    //MARK: delegate
+    //gradient cell background
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        let itemsCount = todoItmes.count - 1
+        let greenColor = (CGFloat(indexPath.row) / CGFloat(itemsCount)) * 0.6
+        cell.backgroundColor = UIColor(red: 1.0, green: greenColor, blue: 0, alpha: 1.0)
+    }
 
 
 }
